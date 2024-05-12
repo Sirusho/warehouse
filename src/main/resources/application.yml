@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: warehouse
+  main:
+    banner-mode: off
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:init.sql'
+    username: sa
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    username: postgres
+#    password:
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        default_schema: warehouse
+server:
+  servlet:
+    context-path: /api/warehouse
+  port: 8082
+  max-http-header-size: 40960
